@@ -1,5 +1,10 @@
 package zad_8;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class Parcel implements Validator {
 
     private int xLength;
@@ -8,57 +13,16 @@ public class Parcel implements Validator {
     private float weight;
     boolean isExpress;
 
-    public Parcel(int xLength, int yLength, int zLength, float weight, boolean isExpress) {
+    public Parcel(int xLength, int yLength, int zLength, float weight) {
         this.xLength = xLength;
         this.yLength = yLength;
         this.zLength = zLength;
         this.weight = weight;
-        this.isExpress = isExpress;
-    }
-
-    public void setxLength(int xLength) {
-        this.xLength = xLength;
-    }
-
-    public void setyLength(int yLength) {
-        this.yLength = yLength;
-    }
-
-    public void setzLength(int zLength) {
-        this.zLength = zLength;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public void setExpress(boolean express) {
-        isExpress = express;
-    }
-
-    public int getxLength() {
-        return xLength;
-    }
-
-    public int getyLength() {
-        return yLength;
-    }
-
-    public int getzLength() {
-        return zLength;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public boolean isExpress() {
-        return isExpress;
     }
 
     @Override
     public boolean validate(Parcel input) {
-        int xyzLength = input.getxLength() + input.getyLength() + input.getzLength();
+        int xyzLength = input.getXLength() + input.getYLength() + input.getZLength();
 
         if(input.getWeight() >= 30){
             isExpress = false;
@@ -66,7 +30,8 @@ public class Parcel implements Validator {
             isExpress = true;
         }
 
-        boolean isCorrect = xyzLength <= 300 && input.getzLength() >= 30 && input.getyLength() >= 30 && input.getxLength() >= 30 && isExpress;
+        boolean isCorrect = xyzLength <= 300 && input.getZLength() >= 30 && input.getYLength() >= 30 && input.getXLength() >= 30 && isExpress;
+
         if(isCorrect) {
             System.out.println("parametry są OK");
         } else {
