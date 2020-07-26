@@ -1,4 +1,4 @@
-package sesja_samodzielna.zad_7_8;
+package sesja_samodzielna.zad_7_8_9;
 
 import java.util.ArrayList;
 import java.util.Comparator;

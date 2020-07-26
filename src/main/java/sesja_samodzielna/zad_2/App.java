@@ -6,17 +6,13 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
         System.out.println("podaj wielkość tablicy");
         int n = in.nextInt();
-
         Integer[] array = new Integer[n];
-
         System.out.println("podaj wartości");
         for (int i = 0; i < n; i++) {
             array[i] = in.nextInt();
         }
-
         int newLength = n;
         boolean isTrue = true;
         while(isTrue){
